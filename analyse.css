@@ -1,0 +1,49 @@
+.graphe{
+    border: 2px solid red;
+    max-width: 1440px;
+    width: 70%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 15rem );
+    justify-content:space-evenly;
+}
+.positif{
+    border: 2px solid blue;
+    width: 15rem;
+    height: 20rem;
+    border-radius: 5%;
+    background-color:  #1898A8;
+    position: relative;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.negatif{
+    border: 2px solid green;
+    width: 15rem;
+    height: 20rem;
+    border-radius: 5%;
+    background-color: white;
+    position: relative;
+}
+
+
+.pourcentage1{
+    position: absolute;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    left: 6rem;
+    top: 14rem;
+    
+}
+
+.pourcentage2{
+    position: absolute;
+    font-weight: bold;
+    font-size: 30px;
+    left: 40%;
+    top: 70%;
+}
+

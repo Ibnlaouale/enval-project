@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="conteneur1">
+       
+        <div class="nav">
+               <div>
+                <img src="images/side-logo-removebg-preview.png" alt="">
+               </div>
+
+           <ul>
+                <li class="active">
+                   <a href="dashbord.html"><i class="fa-solid fa-chart-simple"></i>Dashboard</a>
+                </li>
+                <li>
+                   <a href="facture.html"><i class="fa-solid fa-peace"></i>Facture</a>
+                </li>
+                <li>
+                   <a href="commande.html"><i class="fa-solid fa-cart-shopping"></i>Commande</a>
+                </li>
+                <li>
+                   <a href="suivi.html"><i class="fa-solid fa-bag-shopping"></i>Suivi</a>
+                </li>
+                <li>
+                   <a href="serviceClient.html"><i class="fa-solid fa-comment-dots"></i>Sercice client</a>
+                </li>
+                <div class="loginOut">
+                   <li>
+                    <a href="parametre.html" ><i class="fa-solid fa-gear"></i> Paramètre du compte</a>
+                    </li>
+                    <li>
+                       <a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Déconnexion</a>
+                    </li>
+                </div>
+           </ul>
+        </div>
+
+        <div class="conteneur2">
+           <header class="entete ">
+            <div class="user">
+               <i class="fa-regular fa-bell"></i>
+               <i class="fa-solid fa-user"></i>
+             </div>
+           </header>
+
+            <div class="contenur3">   
+               <section class="bill">
+                  <hr>
+                  <div class="titre">
+                     <h1>Suivi des échantillons</h1>
+                     <input class="input" style="font-family: bootstrap-icons;" type="search" name="" id="" placeholder=" &#xF52A;" >
+                  </div>
+                  <div>
+                      <table class="tableheight">
+                        <thead >
+                           <tr>
+                          <th>Lot</th>
+                          <th>Etat</th>
+                          <th>Date prévue</th>
+                          <th>Rapport</th>
+                          <th>Cliquez pour voir le Rapport</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbodysuivi"><!-- 
+                        <tr>
+                          <td >00012</td>
+                          <td >Enval</td>
+                          <td >10/03/2023</td>
+                          <td>En cours</td>
+                          <td class="voir"> <button class="button">voir</button> </td>
+                        </tr>
+                        <tr>
+                          <td >00012</td>
+                          <td ></td>
+                          <td ></td>
+                          <td></td>
+                          <td class="voir"> <button class="button">voir</button></td>
+                        </tr>
+                        <tr>
+                          <td >00012</td>
+                          <td ></td>
+                          <td ></td>
+                          <td></td>
+                          <td class="voir"> <button class="button">voir</button> </td>
+                        </tr>
+                        <tr>
+                          <td >00012</td>
+                          <td ></td>
+                          <td ></td>
+                          <td></td>
+                          <td class="voir"> <button class="button">voir</button> </td>
+                        </tr>
+                        <tr>
+                          <td >00012</td>
+                          <td ></td>
+                          <td ></td>
+                          <td></td>
+                          <td class="voir"> <button class="button">voir</button> </td>
+                        </tr>
+                        <tr>
+                          <td >00012</td>
+                          <td ></td>
+                          <td ></td>
+                          <td></td>
+                          <td class="voir"> <button class="button">voir</button> </td>
+                        </tr>
+                        <tr>
+                          <td >00012</td>
+                          <td ></td>
+                          <td ></td>
+                          <td></td>
+                          <td class="voir"> <button class="button">voir</button> </td>
+                        </tr>
+                        <tr>
+                          <td >00012</td>
+                          <td ></td>
+                          <td ></td>
+                          <td></td>
+                          <td class="voir"> <button class="button">voir</button> </td>
+                        </tr>
+                        <tr>
+                          <td >00012</td>
+                          <td ></td>
+                          <td ></td>
+                          <td></td>
+                          <td class="voir"> <button class="button">voir</button> </td>
+                        </tr>
+                      --></tbody>
+                      </table>
+                     
+                      <p>Aucune donnée à afficher</p>
+                      <hr>
+                   </div>
+              </section>
+            </div>
+           
+        </div>
+
+        </div>
+    </div>
+
+    </div>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

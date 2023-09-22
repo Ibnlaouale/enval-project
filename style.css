@@ -1,0 +1,554 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.user {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* icon header */
+.fa-bell,
+.fa-user {
+    font-size: 40px;
+    margin-right: 2%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.conteneur1 {
+    /* border: 3px solid red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.nav {
+    /* border: 3px solid green; */
+    width: 20%;
+    height: 99%;
+    position: relative;
+}
+
+.conteneur2 {
+    /* border: 3px dashed violet; */
+    width: 80%;
+    background-color: #3697ab;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entete {
+    /* border: 3px solid blue; */
+    background-color: white;
+    /* margin-left: 1%; */
+    width: 99%;
+    height: 50px;
+    padding: 0%;
+}
+
+.contenur3 {
+    /* border: 3px solid greenyellow; */
+    width: 100%;
+    height: 100vh;
+}
+
+/* login */
+
+
+.login-header {
+    text-align: center;
+    margin: 15px 0 40px 0;
+}
+
+.login-header header img {
+    width: 340px;
+    margin-bottom: 10px;
+}
+
+.input-box .input-field {
+    width: 100%;
+    height: 40px;
+    font-size: 17px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 0.5px solid #8f8a8a;
+    outline: none;
+    transition: .3s;
+    color: #8f8a8a;
+}
+
+#input-box1 {
+    margin-bottom: 25px;
+}
+
+.forgot a {
+    color: #8f8a8a;
+
+}
+
+.submit-btn {
+    width: 100%;
+    height: 40px;
+    background-color: #3697ab;
+    border: none;
+    border-radius: 5px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.submit-btn :hover {
+    background-color: #fff;
+    border: 2px solid #3697ab;
+    color: #3697ab;
+}
+
+.submit-btn a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+/* ----------------------- */
+
+.loginOut {
+    position: absolute;
+    bottom: 0;
+}
+
+li {
+    /* border: 1px solid blue; */
+    margin-top: 10%;
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ====================== GRAPHES CHART =============================== */
+/* ------------------circle barre */
+.graphe {
+    margin-top: 10%;
+    margin-left: 10%;
+   /*  border: 2px solid red; */
+    max-width: 1440px;
+    width: 99%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 15rem);
+    justify-content: space-evenly;
+}
+
+.positif {
+    border: 2px solid white;
+    width: 15rem;
+    height: 20rem;
+    border-radius: 5%;
+    background-color: #1898A8;
+    position: relative;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.negatif {
+    border: 2px solid #1898A8;
+    width: 15rem;
+    height: 20rem;
+    border-radius: 5%;
+    background-color: white;
+    position: relative;
+    margin-left: 20%;
+}
+
+
+.pourcentage1 {
+    position: absolute;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    left: 6rem;
+    top: 14rem;
+
+}
+
+.pourcentage2 {
+    position: absolute;
+    font-weight: bold;
+    font-size: 30px;
+    left: 40%;
+    top: 70%;
+}
+
+/* ------------------barre------------------------------ */
+
+.graph {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+h1 {}
+
+.graphe-content {
+   /*  border: 2px solid yellow; */
+    margin-top: 10%;
+    max-width: 1440px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 80%);
+}
+
+/* ====================fature============= */
+
+.bill {
+    background-color: #fff;
+    justify-content: center;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    min-height: 80vh;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    padding: 2% 15px;
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tableheight td {
+    border: 1px solid;
+    font-size: 20px;
+    text-align: center;
+    color: #8f8a8a;
+    border-left: none;
+}
+
+.tableheight thead tr {
+    height: 3rem;
+    font-size: 32px;
+    color: white;
+    font-weight: bolder;
+    background-color: #1698a8;
+}
+
+.voir {
+    border: 1px solid;
+    text-align: center;
+    color: #8f8a8a;
+    border-right: none;
+    font-size: 23px;
+    width: 25%;
+}
+
+/* titre des tableau */
+.titre {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+.titre h1{
+    font-size: 64px;
+    font-weight: bold;
+}
+.titre input{
+    width: 15%;
+    border-radius: 5px;
+    height: 3rem;
+    margin-top: 1rem;
+    border: none;
+    background-color: #eceaea;
+}
+
+.titre input:focus{
+    outline: 2px solid #adb745;
+}
+
+.tableheight {
+    min-height: 60vh;
+}
+
+.voir {
+    border: 1px solid;
+    text-align: center;
+    color: #8f8a8a;
+    border-right: none;
+    font-size: 23px;
+    width: 25%;
+}
+
+.button {
+    background-color: #1698a8;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    width: 100px;
+    padding: 5px;
+    font-size: 100%;
+}
+
+.button:hover {
+    background-color: white;
+    color: #1b8494;
+    border: 2px solid #1b8494;
+}
+
+/* ================SERVICE CLIENT ============= */
+.service {
+    background-color: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    min-height: 80vh;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    padding: 2% 15px;
+}
+
+.sj {
+    color: #968989;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.envoie {
+    width: 90%;
+    background-color: #1698a8;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    margin-top: 2%;
+}
+
+.textarea {
+    background-color: #eceaea;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1%;
+    width: 90%;
+    height: 35rem;
+}
+
+.label2 {
+    color: #968989;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20%;
+
+
+}
+
+.sujet {
+    width: 90%;
+    background-color: #eceaea;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 1%;
+}
+
+/* ========================= suivi detaillé ====================== */
+.bande {
+    /*border: 1px solid;*/
+    width: 50%;
+    height: 150px;
+    background-image: linear-gradient(to right, green, darkorange, red);
+
+}
+
+/* ===========================PARAMETRE DU COMPTE=========================================== */
+
+.retour {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+}
+
+.retour a {
+    color: #adb745;
+    font-size: 20px;
+}
+
+.retour button {
+    height: 3rem;
+    width: 15rem;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    border: none;
+}
+
+.retour #btnPass {
+    background-color: #1b8494;
+    border: 2px solid #1b8494;
+    ;
+}
+
+.retour #btnPass:hover {
+    background-color: white;
+    color: #1b8494;
+}
+
+.retour #btnDel {
+    background-color: #fd3324;
+}
+
+.retour #btnDel:hover {
+    background-color: white;
+    color: #fd3324;
+    border: 2px solid #fd3324;
+}
+
+.editProfil {
+    /* border: 2px solid red; */
+    margin-top: 10%;
+    display: flex;
+}
+
+.bibliographe {
+    /* border: 2px solid blue; */
+    width: 70%;
+    padding: 1%;
+}
+
+.bibliographe h2 {
+    text-align: left;
+}
+
+.avatar {
+    width: 30%;
+    padding: 1%;
+}
+
+.avatar h2 {
+    text-align: left;
+}
+
+.divBtnAvatar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.divBtnAvatar button {
+    height: 3rem;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+
+}
+
+.divBtnAvatar #editAvatar {
+    background-color: #1b8494;
+    color: white;
+}
+
+.divBtnAvatar #editAvatar:hover {
+    background-color: white;
+    color: #1b8494;
+    border: 2px solid #1b8494;
+}
+
+.divBtnAvatar #delAvatar {
+    background-color: #fd3324;
+    color: white;
+    margin-top: 2%;
+}
+
+.divBtnAvatar #delAvatar:hover {
+    background-color: white;
+    color: #fd3324;
+    border: 2px solid #fd3324;
+}
+
+.avatar img {
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    border: 2px solid #adb745;
+}
+
+form label {
+    font-size: 30px;
+    width: fit-content;
+    margin-left: 1%;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+}
+
+form input {
+    width: 100%;
+    height: 3rem;
+    border-radius: 5px;
+    background-color: #eceaea;
+    border: none;
+    padding: 1%;
+}
+
+form input:focus {
+    outline: 2px solid #adb745;
+
+}
+
+form textarea {
+    background-color: #eceaea;
+    border-radius: 5px;
+    border: none;
+    padding: 1%;
+}
+
+form textarea:focus {
+    outline: 2px solid #adb745;
+}
+
+form button {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 3rem;
+    border-radius: 5px;
+    background-color: #1b8494;
+    border: none;
+    font-size: 30px;
+    color: white;
+}
+
+form button:hover {
+    background-color: white;
+    color: #1b8494;
+    border: 2px solid #1b8494;
+}
+
+/* ================BOITE DE CONFIRMATION DE MOT DE PASSE MODIFIEÉ ============= */
+/* .confirmEditPass{
+    border: 2px solid #1b8494;
+    width: 25rem;
+    height: 50rem;
+    position: absolute;
+} */

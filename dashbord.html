@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="conteneur1">
+<!-- navbar -->
+    <div class="nav">
+      <div>
+        <img src="images/side-logo-removebg-preview.png" alt="">
+      </div>
+
+      <ul>
+        <li class="active">
+          <a href="dashbord.html"><i class="fa-solid fa-chart-simple"></i>Dashboard</a>
+        </li>
+        <li>
+          <a href="facture.html"><i class="fa-solid fa-peace"></i>Facture</a>
+        </li>
+        <li>
+          <a href="commande.html"><i class="fa-solid fa-cart-shopping"></i>Commande</a>
+        </li>
+        <li>
+          <a href="suivi.html"><i class="fa-solid fa-bag-shopping"></i>Suivi</a>
+        </li>
+        <li>
+          <a href="serviceClient.html"><i class="fa-solid fa-comment-dots"></i>Sercice client</a>
+        </li>
+        <div class="loginOut">
+          <li>
+            <a href="parametre.html"><i class="fa-solid fa-gear"></i> Paramètre du compte</a>
+          </li>
+          <li>
+            <a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Déconnexion</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div class="conteneur2">
+      <header class="entete ">
+        <div class="user">
+          <i class="fa-regular fa-bell"></i>
+          <i class="fa-solid fa-user"></i>
+        </div>
+      </header>
+
+      <div class="contenur3">
+        <!-- Analyse positive et negative -->
+        <div class="graphe">
+          <!-- Analyse Positve -->
+          <div style="text-align: center;">
+            <h1>Analyse Positve</h1>
+            <div class="positif">
+              <div style="/* border:1px solid red; */ text-align: center; margin-top: 1rem;">
+                <span style="text-align: center;">
+                  <i style="color: white; font-size: 40px;" class="fa-solid fa-bolt"></i>
+                </span>
+                <h1 style="color: white;">Positif</h1>
+              </div>
+  
+  
+              <div style="width:180px; height: 180px; margin-left: 12% ;">
+                <canvas id="myChart"></canvas>
+              </div>
+  
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+              <script>
+                const ctx = document.getElementById('myChart');
+  
+                new Chart(ctx, {
+                  type: 'doughnut',
+                  data: {
+                    labels: [],
+                    datasets: [{
+                      label: '# of Votes',
+                      data: [80, 20],
+                      borderWidth: 1,
+                      backgroundColor: ['white', ' #73d5e7']
+                    }]
+                  },
+  
+                  options: {
+                    circumference: 300,
+                    rotation: 210,
+                    cutout: '80%',
+                    aspectRation: 2,
+                  }
+                });
+              </script>
+  
+              <span class="pourcentage1">80%</span>
+  
+            </div>
+          </div>
+
+          <!-- Analyse Negative -->
+          <div style="text-align: center;">
+            <h1>Analyse Negative</h1>
+            <div class="negatif">
+
+              <div style="/* border:1px solid; */ text-align: center; margin-top: 1rem;">
+                <span style="text-align: center;">
+                  <i style="color: #1898A8; font-size: 40px;" class="fa-solid fa-droplet"></i>
+                </span>
+                <h1 style="color: gray;">Negatif</h1>
+              </div>
+  
+              <div style="width:180px; height: 180px; margin-left: 12% ;">
+                <canvas id="myChart1"></canvas>
+              </div>
+  
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+              <script>
+                const ytx = document.getElementById('myChart1');
+  
+                new Chart(ytx, {
+                  type: 'doughnut',
+                  data: {
+                    labels: [],
+                    datasets: [{
+                      label: '# of Votes',
+                      data: [50, 50],
+                      borderWidth: 1,
+                      backgroundColor: [' #1898A8', '#73d5e7']
+                    }]
+                  },
+  
+                  options: {
+                    circumference: 300,
+                    rotation: 210,
+                    cutout: '80%',
+                    aspectRation: 2,
+                  }
+                });
+              </script>
+              <span class="pourcentage2">50%</span>
+  
+            </div>
+          </div>
+
+        </div>
+        <!-- --------------------------------------------------------------------- -->
+        <!-- Analyse par mois -->
+        <div>
+
+          <h1>Analyses par mois</h1>
+          <div class="graphe-content">
+            <div>
+              <canvas id="myChart2" style="width:1000px; height: 350px;"></canvas>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="./chart.umd.min.js"></script>
+
+            <script>
+              const grp = document.getElementById("myChart2");
+
+              new Chart(grp, {
+                type: "bar",
+                data: {
+                  labels: ["JAN", "FEV", "MARS", "AVRIL", "MAI", "JUIN", "JUL", "AOUT", "SEP", "OCT", "NOV", "DEC"],
+                  datasets: [
+                    {
+                      label: "",
+                      data: [6, 4, 7, 3, 6, 2, 5, 6, 6, 6, 6, 6],
+                      borderWidth: 0,
+                      backgroundColor: "white",
+                      hoverBackgroundColor: "#4A96A6",
+                      barThickness: 20,
+
+                    },
+                  ],
+                },
+                options: {
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      display: false,
+                    },
+                  },
+
+                  scales: {
+                    y: {
+                      beginAtZero: true,
+                      display: false,
+                    },
+
+                    x: {
+                      grid: {
+                        color: "white",
+                      },
+                    },
+                  },
+                },
+              });
+            </script>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+
+</body>
+
+</html>
