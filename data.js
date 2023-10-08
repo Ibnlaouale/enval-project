@@ -44,7 +44,7 @@ const facture = [
     {
         numero: 9,
         laboratoire: 'Enval',
-        date: '10/03/2023',
+        date: '13/03/2023',
     }
 
 ]
@@ -119,69 +119,85 @@ const suivi = [
         lot: 'TE202303001',
         etat: 'Reçu',
         datePrevue: '12/03/2023',
-        rappot: 'Disponible'
+        rapport: 'Disponible'
     },
 
     {
         lot: 'E202302023',
         etat: 'Non Reçu',
         datePrevue: '12/03/2023',
-        rappot: 'Non Disponible'
+        rapport: 'Non Disponible'
     },
 
     {
         lot: 'TE20230190',
         etat: 'Reçu',
         datePrevue: '14/03/2023',
-        rappot: 'Non Disponible'
+        rapport: 'Non Disponible'
     },
 
     {
         lot: 'Carbonate',
         etat: 'Reçu',
         datePrevue: '14/03/2023',
-        rappot: 'Disponible'
+        rapport: 'Disponible'
     },
 
     {
         lot: 'Chlorure',
         etat: 'Non Reçu',
         datePrevue: '15/03/2023',
-        rappot: 'Non Disponible'
+        rapport: 'Non Disponible'
     },
 
     {
         lot: 'CO2 libre',
         etat: 'Reçu',
         datePrevue: '15/03/2023',
-        rappot: 'Disponible'
+        rapport: 'Disponible'
     },
 
     {
         lot: 'Conductivité électrique',
         etat: 'Non Reçu',
         datePrevue: '15/03/2023',
-        rappot: 'Non Disponible'
+        rapport: 'Non Disponible'
     },
 
     {
         lot: 'pH/Température',
         etat: 'Reçu',
         datePrevue: '16/03/2023',
-        rappot: 'Disponible'
+        rapport: 'Disponible'
     },
 
     {
         lot: 'Couleur brute',
         etat: 'Reçu',
         datePrevue: '17/03/2023',
-        rappot: 'Non Disponible'
+        rapport: 'Non Disponible'
     },
 
     {
         lot: 'Cyanure libre',
         etat: 'Reçu',
         datePrevue: '20/03/2023',
-        rappot: 'Disponible'
+        rapport: 'Disponible'
+    }
+]
+
+// ===================== TABLEAU D'UTILISATEURS =======================
+const users = [
+    {
+        id : Date.now(),
+        nom: 'test1',
+        password: 'test1',
+        picture: './avatar.jpg'
+    },
+    {
+        id : Date.now(),
+        nom: 'test2',
+        password: 'test2',
+        picture: './avatar.jpg'
     }
 ]

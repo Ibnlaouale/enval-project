@@ -10,14 +10,27 @@
 </head>
 <body>
     <div class="login-box">
+        <!-- notification de connexion -->
+        <div class="notification hidden">
+            <h2>Connexion</h2>
+            <p>Oups !!! La combinaison Idetifiant/Password est incorrecte</p>
+        </div>
+        <!----------------------------------------------->
+        <!-- notification de deblockage -->
+        <div class="timer hidden">
+            <h2>Timer deblockage</h2>
+            <p><span id="heure">00:</span> <span id="munite">00:</span> <span id="seconde">00</span></p>
+        </div>
+        <!-------------------------------------->
         <div class="login-header">
             <header><img src="img/img_login-removebg-preview.png" alt=""></header>
         </div>
+        
         <div class="input-box" id="input-box1">
-            <input type="text" class="input-field" placeholder="Email" autocomplete="off" required>
+            <input id="identifiant" type="text" class="input-field" placeholder="Identifiant" autocomplete="on" required>
         </div>
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Password" autocomplete="off" required>
+            <input id="password" type="password" class="input-field" placeholder="Password" autocomplete="on" required>
         </div>
         <div class="forgot">
             <section>
@@ -25,8 +38,11 @@
             </section>
         </div>
         <div class="input-submit">
-            <a href="dashbord.html"><button class="submit-btn">Connexion</button></a>
+            <a id="btnConnexion"><button class="submit-btn">Connexion</button></a>
         </div>
     </div>
+
+    <script src="data.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

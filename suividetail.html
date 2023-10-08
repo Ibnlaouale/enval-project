@@ -51,15 +51,20 @@
            <header class="entete ">
             <div class="user">
                <i class="fa-regular fa-bell"></i>
-               <i class="fa-solid fa-user"></i>
+               <img class = "avatarNavbar"   alt="profil">
              </div>
            </header>
 
-            <div class="contenur3">   
+            <div class="conteneur3">  
+                <h4>Rapport: <span id="nomLot">R-202303001</span></h4> 
                 <section class="bill">
-                    <!-- table 1 -->
-                    <div class=" table-responsive">
-                        <table class=" sizing">
+                    
+                       <div class="divTables">
+                        <img src="image-rapport.png" alt="" style="width: 200px; margin-left: 0%;">
+                        <h4>Rapport d'analyse <span id="nomRapport">(Moteur)</span></h4>
+
+                        <!-- table 1 -->
+                        <table style="border: 1px solid;" class="sizing">
                             <thead style="background-color:  #E7F9FD;">
                                 <tr>
                                     <th colspan="4">Information client</th>
@@ -93,10 +98,10 @@
                                     </tr>
                                 </tbody>
                         </table>
-                    </div>
+                   
                     <!-- table2 -->
-                    <div>
-                        <table class="sizing">
+                  
+                        <table style="border: 1px solid;" class="sizing">
                             <thead style="background-color: #E7F9FD;">
                                 <tr>
                                     <th colspan="8">Inforamtion Echantillons</th>
@@ -191,11 +196,11 @@
     
                             
                         </table>
-                    </div>
+                   
 
                     <!-- table 3 -->
-                    <div class=" table-responsive">
-                        <table class="sizing">
+                  
+                        <table style="border: 1px solid;" class="sizing">
                             <thead>
                                 <tr style="background-color:#E7F9FD">
                                     <th>Paramètres</th>
@@ -466,9 +471,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-
-                    <!-- commentaire -->
+                        <!-- commentaire -->
                     <div class=" result">
                         <div class="bande">
                             <h1 style="text-align: end; margin-top: 20px;">X</h1>
@@ -485,7 +488,7 @@
                                 fournies.</p>
                         </div>
                     </div>
-
+                       </div>
                 </section>
             </div>
            
@@ -495,7 +498,8 @@
     </div>
 
     </div>
-
+    <script src="data.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

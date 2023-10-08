@@ -53,24 +53,37 @@
             <header class="entete ">
                 <div class="user">
                     <i class="fa-regular fa-bell"></i>
-                    <i class="fa-solid fa-user"></i>
+                    <img id="avatarNavbar" class="profilNavbar" alt="profil">
                 </div>
             </header>
 
-            <div class="contenur3">
+            <div class="conteneur3">
                 <!-- boite d'edition de mot de passe -->
-                
-                <!-- <div class="confirmEditPass">
+
+                <div id="divModifierPass" class="confirmEditPass hidden">
                     <h2>Modifier mot de passe</h2>
                     <form action="">
-
+                        <label for="">Ancien mot de passe</label>
+                        <input type="text" name="" id="inputPassEncien">
+                        <label for="">Nouveau mot de passe</label>
+                        <input type="text" name="" id="inputPassNouveau">
+                        <label for="">Confirmation</label>
+                        <input type="text" name="" id="inputPassConfirm">
+                        <button id="btnPassEdit" type="submit">Envoyer</button>
                     </form>
-                </div> -->
-            <!------------------------------>
+                </div>
+                <!------------------------------>
+                <!-- notification de paramètre de compte -->
+                <div class="notification hidden">
+                    <h2></h2>
+                    <p></p>
+                </div>
+                <!----------------------------------------------->
                 <section class="bill">
                     <div class="retour">
                         <a href="dashbord.html"><i class="fa-solid fa-arrow-left"></i> Retour au dashbord</a>
                         <div>
+
                             <button id="btnPass">Modifier le mot de passe</button>
                             <button id="btnDel">Suprimer le compte</button>
                         </div>
@@ -79,21 +92,23 @@
                         <div class="bibliographe">
                             <h2>Modifier le profil</h2>
                             <form action="">
-                                <label for="">Nom</label>
-                                <input type="text" placeholder="Nom">
-                                <label for="">Email</label>
-                                <input type="email" placeholder="Email">
-                                <label for="">Bibliographie</label>
-                                <textarea name="" id="" cols="30" rows="10" placeholder="votre bibliographie"></textarea>
-                                <button class="btnEnvoyer">Envoyer</button>
+                                <label for="nom">Nom</label>
+                                <input id="inputNomEdit" type="text" placeholder="Nom">
+                                <label for="mailEdit">Email</label>
+                                <input id="inputMailEdit" type="email" placeholder="Email">
+                                <label for="biblio">Bibliographie</label>
+                                <textarea name="" id="inputBiblio" cols="30" rows="10"
+                                    placeholder="votre bibliographie"></textarea>
+                                <button id="btnEditProfil" class="btnEnvoyer">Envoyer</button>
                             </form>
                         </div>
                         <div class="avatar">
                             <h2>votre avatar</h2>
-                            <img src="images/avatar.jpg" alt="">
+                            <img id="pictureProfil" src="images/avatar.jpg" alt="">
                             <div class="divBtnAvatar">
+                                <!-- <input id="changeAvatar" style="display: none;" type="file" accept=".jpg, png"> -->
                                 <button id="editAvatar">Modifier la photo</button>
-                                <button id="delAvatar">Supprimer la phpto</button>
+                                <button id="delAvatar">Supprimer la photo</button>
                             </div>
                         </div>
 
