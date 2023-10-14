@@ -333,6 +333,7 @@ if (window.location.pathname.includes('facture.html')) {
 
         if (existUser) {
             btnConnexion.href = 'dashbord.html';
+            btnConnexion.target="_blank";
             localStorage.setItem('connecte', JSON.stringify(existUser)); // ENVIE DE L'UTILISATEUR CONNECTE DANS LE localStrorage
         } else {
             essai++;
