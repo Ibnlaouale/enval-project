@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
 
@@ -10,7 +10,7 @@
     display: flex;
     justify-content: flex-end;
     margin-right: 2%;
-    
+
 }
 
 /* icon header */
@@ -20,7 +20,7 @@
     margin-right: 2%;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 .conteneur1 {
-    border: 3px solid red;
+    /* border: 3px solid red; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -43,14 +43,14 @@ body {
 }
 
 .nav {
-    border: 3px solid green;
+    /* border: 3px solid green; */
     width: 20%;
     /* height: 99%; */
     position: relative;
 }
 
 .conteneur2 {
-    border: 3px dashed violet;
+    /* border: 3px dashed violet; */
     width: 80%;
     background-color: #c9e4ed;
     /* height: 100vh; */
@@ -60,7 +60,7 @@ body {
 }
 
 .entete {
-    border: 3px solid blue;
+    /* border: 3px solid blue; */
     background-color: white;
     /* margin-left: 1%; */
     width: 99%;
@@ -69,7 +69,7 @@ body {
 }
 
 .conteneur3 {
-    border: 3px solid greenyellow;
+    /* border: 3px solid greenyellow; */
     width: 100%;
     /* height: 100vh; */
 }
@@ -146,16 +146,20 @@ li {
     height: 3rem;
     border-radius: 20px;
 }
-li:hover{
+
+li:hover {
     background-color: #c9e4ed;
 }
-li a:hover{
+
+li a:hover {
     color: #fff;
 }
-li span{
+
+li span {
     margin-left: 2%;
 }
- a {
+
+a {
     margin-top: 2rem;
     text-decoration: none;
     margin-left: 2%;
@@ -166,7 +170,7 @@ li span{
 .graphe {
     margin-top: 10%;
     margin-left: 10%;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     max-width: 1440px;
     width: 99%;
     height: auto;
@@ -226,7 +230,7 @@ li span{
 h1 {}
 
 .graphe-content {
-   /*  border: 2px solid yellow; */
+    /*  border: 2px solid yellow; */
     /* margin-top: 10%; */
     /* max-width: 1440px; */
     /* width: 100%; */
@@ -234,7 +238,7 @@ h1 {}
     grid-template-columns: repeat(auto-fill, 50%);
 }
 
-#analyse-mois h1{
+#analyse-mois h1 {
     margin-bottom: 2%;
 }
 
@@ -275,17 +279,21 @@ table {
     font-weight: bolder;
     background-color: #1698a8;
 }
-.tableheight thead tr:hover{
+
+.tableheight thead tr:hover {
     cursor: pointer;
 }
-.tableheight tbody tr:hover{
+
+.tableheight tbody tr:hover {
     color: #1b8494;
     background-color: #eceaea;
 }
-.tableheight tbody tr td:hover{
+
+.tableheight tbody tr td:hover {
     color: #1b8494;
 }
-.fa-arrow-down-a-z{
+
+.fa-arrow-down-a-z {
     font-size: 20px;
 }
 
@@ -295,13 +303,16 @@ table {
     display: flex;
     justify-content: space-around;
     margin-bottom: 1rem;
-    color: #8f8a8a;;
+    color: #8f8a8a;
+    ;
 }
-.titre h1{
+
+.titre h1 {
     font-size: 64px;
     font-weight: bold;
 }
-.titre input{
+
+.titre input {
     width: 15%;
     border-radius: 5px;
     height: 3rem;
@@ -310,14 +321,15 @@ table {
     background-color: #eceaea;
 }
 
-.titre input:focus{
+.titre input:focus {
     outline: 2px solid #adb745;
 }
 
 .tableheight {
     min-height: 60vh;
 }
-.heigthAuto{
+
+.heigthAuto {
     height: auto;
 }
 
@@ -340,7 +352,8 @@ table {
 }
 
 .button:active {
-    background-color: #1b8494;;
+    background-color: #1b8494;
+    ;
     color: white;
     border: 2px solid white;
 }
@@ -442,6 +455,7 @@ table {
     background-color: white;
     color: #1b8494;
 }
+
 .retour #btnPass:active {
     background-color: #1b8494;
     color: white;
@@ -456,6 +470,7 @@ table {
     color: #fd3324;
     border: 2px solid #fd3324;
 }
+
 .retour #btnDel:active {
     background-color: #fd3324;
     color: white;
@@ -607,7 +622,7 @@ form button:active {
 }
 
 /* ================BOITE DE CONFIRMATION DE MOT DE PASSE MODIFIEÉ ============= */
-.confirmEditPass{
+.confirmEditPass {
     border: 2px solid #17a2b2;
     border-radius: 3.5%;
     width: 30rem;
@@ -618,29 +633,32 @@ form button:active {
     z-index: 9999;
     background-color: #fff;
     overflow: hidden;
-    
+
 }
-.confirmEditPass h2{
+
+.confirmEditPass h2 {
     background-color: #1b8494;
-    
+
     color: white;
     padding: 2%;
     text-align: center;
     font-size: 32px;
 }
-.confirmEditPass form{
+
+.confirmEditPass form {
     padding: 2%;
 }
-.confirmEditPass form label{
+
+.confirmEditPass form label {
     margin-top: 1rem;
 }
 
-.confirmEditPass form button{
-   margin-top: 8% !important;
+.confirmEditPass form button {
+    margin-top: 8% !important;
 }
 
 /* ======================== BOITE DE NOTIFICATION DE CONNEXION =============================== */
-.notification{
+.notification {
     border: 2px solid #1b8494;
     width: 30%;
     height: 10%;
@@ -654,22 +672,26 @@ form button:active {
     animation: notification 1s;
 }
 
-@keyframes notification{
-    from{
+@keyframes notification {
+    from {
         transform: translateX(200%);
-    }to{
+    }
+
+    to {
         transform: translateX(0);
     }
 }
+
 /* =====================NOTIFICATION DE CONNEXION ======================================= */
-.notification h2{
+.notification h2 {
     color: white;
     background-color: #1b8494;
     text-align: center;
     padding: 1%;
     font-size: 32px;
 }
-.notification p{
+
+.notification p {
     font-size: 20px;
     margin-top: 3%;
     text-align: center;
@@ -679,7 +701,7 @@ form button:active {
 }
 
 /* ==========================NOTIFICATION DE DEBLOCKAGE ================================ */
-.timer{
+.timer {
     width: 20rem;
     height: 7rem;
     border: 2px solid #1b8494;
@@ -691,14 +713,15 @@ form button:active {
     border-radius: 15px;
     overflow: hidden;
 }
-.timer h2{
+
+.timer h2 {
     text-align: center;
     background-color: #1b8494;
     color: white;
     padding: 1%;
 }
 
-.timer p{
+.timer p {
     color: #adb745;
     text-align: center;
     font-size: 32px;
@@ -711,140 +734,192 @@ form button:active {
     width: 99%;
 }
 
-.sizing thead{
+.sizing thead {
     font-size: 25px;
     height: 2rem;
 }
-.sizing th{
+
+.sizing th {
     font-size: 16px;
     height: 2rem;
 }
-h4{
+
+h4 {
     font-size: 32px;
     width: fit-content;
 }
 
-.divTables{
+.divTables {
     overflow: auto;
     height: 80vh;
 }
 
-.divTables img{
+.divTables img {
     text-align: justify !important;
 }
-.divTables table{
+
+.divTables table {
     margin-top: 1%;
     margin-bottom: 1%;
 }
 
 /* ============image avatr ============= */
-.user img{
+.user img {
     height: 40px;
     width: 40px;
     border-radius: 50%;
 }
-#logo-side{
+
+#logo-side {
     width: 100%;
-   }
-ul{
-   list-style: none;
 }
-.graphe h1, #analyse-mois h1{
+
+ul {
+    list-style: none;
+}
+
+.graphe h1,
+#analyse-mois h1 {
     color: #8f8a8a;
 }
+
 /* ===============les media queries ================== */
 
 @media screen and (max-width: 600px) {
 
-    body{
-        background-color: #adb745;
+    body {
         overflow-y: scroll;
     }
-   li span{
-    display: none;
-   }
-   ul{
-    margin-left: 20%
-   }
-   .graphe,  .negatif{
-    margin-left: 0%;
-   }
-   .conteneur1{
-    height: 100%;
-    overflow: scroll;
-   }
-   
-   .graphe-content{
-    grid-template-columns: repeat(auto-fill, 100%)
-   }
 
-   .divTable{
-    overflow-x: scroll;
-   }
-   .divTable th{
-    font-size:medium;
-   }
-   .titre{
-    display: block;
-   }
-   .titre input{
-    width: 100%;
-   }
-   .titre h1{
-    font-size: 32px;
-   }
-/* =============paramètre ============== */
-
-.retour, .editProfil{
-    display: block;
-}
-   .bibliographe, .avatar{
-    width: 100%;
-   }
-   #btnPass,#btnDel{
-    margin-top: 2%;
-   }
-   .confirmEditPass {
-    margin-left: 0rem;
-    width: 20rem;
-    height: 24rem;
-    font-size: medium;
-} 
-.confirmEditPass label, .confirmEditPass h2{
-    font-size: medium;
-}
-.notification{
-    width: 50%;
-    height: 10%;
-}
-.notification h2, .notification p{
-    font-size: small;
-}
-}
-
-@media screen and (max-width: 768px) and (min-width: 601px){
-    body{
-        background-color: blue;
+    li span {
+        display: none;
     }
-    .retour div{
+
+    ul {
+        margin-left: 20%
+    }
+
+    .graphe,
+    .negatif {
+        margin-left: 0%;
+    }
+
+    .conteneur1 {
+        height: 100%;
+        overflow: scroll;
+    }
+
+    .graphe-content {
+        grid-template-columns: repeat(auto-fill, 100%)
+    }
+
+    .divTable {
+        overflow-x: scroll;
+    }
+
+    .divTable th {
+        font-size: medium;
+    }
+
+    .titre {
+        display: block;
+    }
+
+    .titre input {
+        width: 100%;
+    }
+
+    .titre h1 {
+        font-size: 32px;
+    }
+
+    /* =============paramètre ============== */
+
+    .retour,
+    .editProfil {
+        display: block;
+    }
+
+    .bibliographe,
+    .avatar {
+        width: 100%;
+    }
+
+    #btnPass,
+    #btnDel {
+        margin-top: 2%;
+    }
+
+    .confirmEditPass {
+        margin-left: 0rem;
+        width: 20rem;
+        height: 24rem;
+        font-size: medium;
+    }
+
+    .confirmEditPass label,
+    .confirmEditPass h2 {
+        font-size: medium;
+    }
+
+    .notification {
+        width: 50%;
+        height: 10%;
+    }
+
+    .notification h2,
+    .notification p {
+        font-size: small;
+    }
+
+    .conteneur3 {
+        overflow-y: scroll;
+    }
+
+    .timer{
+        margin-left: 0%;
+    }
+}
+
+@media screen and (max-width: 630px) and (min-width: 601px) {
+    .conteneur3 {
+        overflow-y: scroll;
+    }
+
+    .timer{
+        margin-left: 0%;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 601px) {
+    
+
+    .retour div {
         display: flex;
         flex-direction: column;
     }
-    #btnPass,#btnDel{
+
+    #btnPass,
+    #btnDel {
         margin-top: 2%;
-       }
-    #editAvatar,#delAvatar{
+    }
+
+    #editAvatar,
+    #delAvatar {
         font-size: medium;
     }
+
     .confirmEditPass {
         margin-left: 3rem;
     }
 
-    .notification{
+    .notification {
         width: 50%;
         height: 10%;
     }
-    .notification h2, .notification p{
+
+    .notification h2,
+    .notification p {
         font-size: medium;
     }
 
@@ -854,58 +929,104 @@ ul{
     }
 
     /* ===========les tables ========== */
-    .divTable{
+    .divTable {
         overflow-x: scroll;
-       }
-       .divTable th{
-        font-size:medium;
-       }
-       .titre{
-        display: block;
-       }
-       .titre input{
-        width: 60%;
-       }
-       .titre h1{
-        font-size: 32px;
-       }
-/* ================Dashboard ================ */
-       .graphe, .negatif {
-         margin-left: 0%;
     }
-    .graphe-content{
+
+    .divTable th {
+        font-size: medium;
+    }
+
+    .titre {
+        display: block;
+    }
+
+    .titre input {
+        width: 60%;
+    }
+
+    .titre h1 {
+        font-size: 32px;
+    }
+
+    /* ================Dashboard ================ */
+    .graphe,
+    .negatif {
+        margin-left: 0%;
+    }
+
+    .graphe-content {
         grid-template-columns: repeat(auto-fill, 100%)
-       }
-       #analyse-mois{
+    }
+
+    #analyse-mois {
         margin-top: 5%;
-       }
-       #analyse-mois h1{
+    }
+
+    #analyse-mois h1 {
         margin-bottom: 5%;
-       }
+    }
+
+
+    .timer{
+        margin-left: 0%;
+    }
 
 }
 
 
-@media screen and (max-width: 1024px) and (min-width: 769px){
+@media screen and (max-width: 1024px) and (min-width: 769px) {
     .graphe {
         margin-left: 0%;
         width: 90%;
     }
+
     .negatif {
         margin-left: 0%;
     }
-    .graphe-content{
+
+    .graphe-content {
         grid-template-columns: repeat(auto-fill, 100%);
-       }
+    }
 
     /*============ les table=========== */
-    .titre input{
+    .titre input {
         width: 60%;
-       }
-       .titre h1{
+    }
+
+    .titre h1 {
         font-size: 32px;
-       }
-       .divTable th{
-        font-size:medium;
-       }  
+    }
+
+    .divTable th {
+        font-size: medium;
+    }
+
+
+    .timer{
+        margin-left: 0%;
+    }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1024px) {
+    .graphe-content {
+        grid-template-columns: repeat(auto-fill, 70%);
+    }
+    #divModifierPass{
+        margin-left: 10rem;
+    }
+    .notification {
+        width: 30%;
+        height: 10%;
+    }
+
+    .notification h2,
+    .notification p {
+        font-size: medium;
+    }
+
+
+    .timer{
+        margin-left: 0%;
+    }
 }
