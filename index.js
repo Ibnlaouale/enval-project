@@ -332,9 +332,9 @@ if (window.location.pathname.includes('facture.html')) {
         let existUser = tabUsers.find(user => (user.nom === email && user.password === password))
 
         if (existUser) {
-            btnConnexion.href = 'dashbord.html';
+            btnConnexion.href = './dashbord.html';
             btnConnexion.target="_blank";
-            localStorage.setItem('connecte', JSON.stringify(existUser)); // ENVIE DE L'UTILISATEUR CONNECTE DANS LE localStrorage
+            localStorage.setItem('connecte', JSON.stringify(existUser)); // ENVOIE DE L'UTILISATEUR CONNECTE DANS LE localStrorage
         } else {
             essai++;
             notification.classList.remove('hidden');
