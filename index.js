@@ -349,6 +349,7 @@ if (window.location.pathname.includes('facture.html')) {
                     const question = prompt('Question secrete: quel est le surnom de Nueuve ?');
                     if (question === 'mouton') {
                         btnConnexion.href = 'dashbord.html';
+                        btnConnexion.target="_blank";
                     } else {
                         timer.classList.remove('hidden');
                         chrono(5);  // le timer
