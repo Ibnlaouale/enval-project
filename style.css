@@ -1029,4 +1029,19 @@ ul {
     .timer{
         margin-left: 0%;
     }
+
+}
+
+@media screen and (max-width: 1440px){
+    .conteneur3 {
+        overflow-y: scroll;
+    }
+
+    .divTable th {
+        font-size: medium;
+    }
+    .titre h1 {
+        font-size: 32px;
+        padding: 2%
+    }
 }
