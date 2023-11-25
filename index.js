@@ -86,10 +86,17 @@ if (window.location.pathname.includes('facture.html')) {
     let userConnecte = JSON.parse(localStorage.getItem('connecte'));
     let avatar = document.querySelector('.profilNavbar');
 
-    function loadAvatarNavBar(){
+    function loadAvatarNavBar() {
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
+// =================================================================================================================
+const btnDisConnect = document.querySelector('#disConnect');
+
+btnDisConnect.addEventListener('click', () =>{
+    localStorage.removeItem('connecte');
+})
+// =================================================================================================================
 
     // ROUTE COMMANDE 
 } else if (window.location.pathname.includes('commande.html')) {
@@ -184,10 +191,18 @@ if (window.location.pathname.includes('facture.html')) {
     // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
     let userConnecte = JSON.parse(localStorage.getItem('connecte'));
     let avatar = document.querySelector('.profilNavbar');
-    function loadAvatarNavBar(){
+    function loadAvatarNavBar() {
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
+
+    // =================================================================================================================
+    const btnDisConnect = document.querySelector('#disConnect');
+
+    btnDisConnect.addEventListener('click', () =>{
+        localStorage.removeItem('connecte');
+    })
+    // =================================================================================================================
 
     //  ROUTE SUIVI 
 } else if (window.location.pathname.includes('suivi.html')) {
@@ -297,10 +312,20 @@ if (window.location.pathname.includes('facture.html')) {
     // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
     let userConnecte = JSON.parse(localStorage.getItem('connecte'));
     let avatar = document.querySelector('.profilNavbar');
-    function loadAvatarNavBar(){
+    function loadAvatarNavBar() {
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
+
+    // =================================================================================================================
+    const btnDisConnect = document.querySelector('#disConnect');
+
+    btnDisConnect.addEventListener('click', () =>{
+        localStorage.removeItem('connecte');
+    })
+    // =================================================================================================================
+
+//  ROUTE SUIVI DETAILLE 
 } else if (window.location.pathname.includes('suividetail.html')) {
     let object = JSON.parse(localStorage.getItem('objet')) // RECUPERATION DE L'OBJET DE localStarage
     const nomLot = document.querySelector('#nomLot');
@@ -308,13 +333,23 @@ if (window.location.pathname.includes('facture.html')) {
     nomLot.textContent = object.lot;
     nomRapport.textContent = object.lot;
 
-    // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
+    // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==================================
     let userConnecte = JSON.parse(localStorage.getItem('connecte'));
     let avatar = document.querySelector('.profilNavbar');
-    function loadAvatarNavBar(){
+    function loadAvatarNavBar() {
         avatar.src = userConnecte.picture;
     }
-    loadAvatarNavBar()
+    loadAvatarNavBar();
+
+    // =================================================================================================================
+    const btnDisConnect = document.querySelector('#disConnect');
+
+    btnDisConnect.addEventListener('click', () =>{
+        localStorage.removeItem('connecte');
+    })
+    // =================================================================================================================
+
+    //  ROUTE INDEX 
 } else if (window.location.pathname.includes('index.html')) {
     // ====================== CONNEXION ==============================
     const btnConnexion = document.querySelector('#btnConnexion');
@@ -327,13 +362,20 @@ if (window.location.pathname.includes('facture.html')) {
     let essai = 0;
     let tabUsers = JSON.parse(localStorage.getItem('user')); // RECUPERATUION DE TABLEAU DES UTLISATEURS DE localStorage
     btnConnexion.addEventListener('click', () => {
-        const email = inputIdentifant.value;
-        const password = inputPassword.value;
+        if (inputIdentifant.value === "" || inputPassword.value === '') {
+            notification.querySelector('p').textContent = 'Veuillez renseigner tous les champ';
+            essai = 0;
+            setTimeout(() => {
+                location.reload();
+            }, 3500);
+        }
+        const email = inputIdentifant.value.trim();
+        const password = inputPassword.value.trim();
         let existUser = tabUsers.find(user => (user.nom === email && user.password === password))
 
         if (existUser) {
-            btnConnexion.href = 'dashbord.html';
-            btnConnexion.target="_blank";
+           window.location.href = 'dashbord.html';
+            // btnConnexion.target = "_blank";
             localStorage.setItem('connecte', JSON.stringify(existUser)); // ENVOIE DE L'UTILISATEUR CONNECTE DANS LE localStrorage
         } else {
             essai++;
@@ -349,8 +391,7 @@ if (window.location.pathname.includes('facture.html')) {
                 setTimeout(() => {
                     const question = prompt('Question secrete: quel est le surnom de Nueuve ?');
                     if (question === 'mouton') {
-                        btnConnexion.href = 'dashbord.html';
-                        btnConnexion.target="_blank";
+                        window.location.href = 'dashbord.html';
                     } else {
                         timer.classList.remove('hidden');
                         chrono(5);  // le timer
@@ -369,8 +410,7 @@ if (window.location.pathname.includes('facture.html')) {
         }
     })
 
-
-
+   
     // ========================================== Fonctios =================================================
     // ------------------------------ fonction timer ---------------------------------
     let date = Date.now();
@@ -401,7 +441,8 @@ if (window.location.pathname.includes('facture.html')) {
         addMunites(newDate, time);
     }
     // ---------------------------------------------------------------------------
-
+    
+//  ROUTE PARAMETTRE 
 } else if (window.location.pathname.includes('parametre.html')) {
 
     let notification = document.querySelector('.notification');
@@ -434,7 +475,7 @@ if (window.location.pathname.includes('facture.html')) {
             tabUsers.splice(indexUser, 1); // SUPPRESSION DE L'UTILISATEUR CONNECTE DE TABLEAU DES UTILISATEURS
 
             if (valPassEncien === '' || valPasssNouveau == '' || valPassConfirm === '') {
-              
+
                 titreNotif.textContent = 'Modification de mot de passe';
                 texteNotif.textContent = 'Echec..!!! Veuillez renseigner tout les champs';
                 notification.setAttribute('style', 'border:2px solid red');
@@ -447,14 +488,14 @@ if (window.location.pathname.includes('facture.html')) {
                 tabUsers.push(userConnecte);
                 console.log(tabUsers);
                 updateUserTabUser();
-                
+
                 titreNotif.textContent = 'Modification de mot de passe';
                 texteNotif.textContent = 'mot de passe modifié avec succès';
                 alertNotif();
                 inputPassEncien.value = '';
                 inputPassNouveau.value = '';
                 inputPassConfirm.value = '';
-               
+
             } else if (userConnecte.password !== valPassEncien) {
 
                 titreNotif.textContent = 'Modification de mot de passe';
@@ -532,7 +573,7 @@ if (window.location.pathname.includes('facture.html')) {
 
     let avatar = document.querySelector('.profilNavbar');
 
-    function loadAvatarNavBar(){
+    function loadAvatarNavBar() {
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
@@ -607,29 +648,62 @@ if (window.location.pathname.includes('facture.html')) {
     }
 
     // ==========================fFONCTION ALERT DE NOTIFICATION ================
-    function alertNotif(){
+    function alertNotif() {
         notification.classList.remove('hidden');
         setTimeout(() => {
             notification.classList.add('hidden');
         }, 3000);
     }
+
+
+
+    // =================================================================================================================
+    const btnDisConnect = document.querySelector('#disConnect');
+
+    btnDisConnect.addEventListener('click', () =>{
+        localStorage.removeItem('connecte');
+    })
+    // =================================================================================================================
+
+    //  ROUTE DASHBORD 
 } else if (window.location.pathname.includes('dashbord.html')) {
     // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==================================
     let userConnecte = JSON.parse(localStorage.getItem('connecte'));
     let avatar = document.querySelector('.profilNavbar');
-    function loadAvatarNavBar(){
+    function loadAvatarNavBar() {
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
+
+    // =================================================================================================================
+    const btnDisConnect = document.querySelector('#disConnect');
+
+    btnDisConnect.addEventListener('click', () =>{
+        localStorage.removeItem('connecte');
+    })
+    // =================================================================================================================
+
+    //  ROUTE SERVICE CLIENT 
 } else if (window.location.pathname.includes('serviceClient.html')) {
     // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
     let userConnecte = JSON.parse(localStorage.getItem('connecte'));
     let avatar = document.querySelector('.profilNavbar');
-    function loadAvatarNavBar(){
+    function loadAvatarNavBar() {
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
 }
+
+
+    // =================================================================================================================
+    const btnDisConnect = document.querySelector('#disConnect');
+
+    btnDisConnect.addEventListener('click', () =>{
+        localStorage.removeItem('connecte');
+    })
+    // =================================================================================================================
+
+
 
 // ===================localstorage========================================
 // ========= ENVOI DE TABLEAU DES UTILISATEURS DANS le localstorage =======
