@@ -3,13 +3,13 @@ if (window.location.pathname.includes('facture.html')) {
 
     const tbodyFacture = document.querySelector('#tbodyFacture');
     // ========== CHARGEMENT DU TABLEAEU FACTURE =====================
+    tbodyFacture.innerHTML = '';
     facture.forEach(element => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td >${element.numero.toString().padStart(4, '0')}</td>
+        tbodyFacture.innerHTML += `<tr><td >${element.numero.toString().padStart(4, '0')}</td>
                     <td >${element.laboratoire}</td>
                     <td >${element.date}</td>
-                    <td class="voir"><a class="link-voir"><button class="button">voir</button> </a></td>`;
-        tbodyFacture.appendChild(tr);
+                    <td class="voir"><a class="link-voir"><button class="button">voir</button> </a></td>
+                    </td>`;
     });
     //================= la fonction compare pour le tri =====================
     const compare = function (ids, asc) {
@@ -24,7 +24,7 @@ if (window.location.pathname.includes('facture.html')) {
                 else {
                     return v1.toString().localeCompare(v2);
                 }
-                return v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2);
+                // return v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2);
             };
             return tri(tdValue(asc ? row1 : row2, ids), tdValue(asc ? row2 : row1, ids));
         }
@@ -33,14 +33,14 @@ if (window.location.pathname.includes('facture.html')) {
     const allTh = document.querySelectorAll('th');
     const allTr = tbodyFacture.querySelectorAll('tr');
     // console.log(allTr, allTh);
-    for (let i = 0; i < allTh.length; i++) {
+    for (let i = 0; i < allTh.length; i++) { 
         const th = allTh[i];
         th.addEventListener('click', () => {
             let lignes = Array.from(allTr).sort(compare(Array.from(allTh).indexOf(th), this.asc = !this.asc)); // les paramètres de la methode compare() (c'est-à-dire les  a et b) representent les différents tr du tableau lignes;
             lignes.forEach(tr => tbodyFacture.appendChild(tr));
             console.log(true);
-            // const icon = th.querySelector("i");
-            // icon.classList.toggle('fa-arrow-up-z-a');
+            const icon = th.querySelector("i");
+            icon.classList.toggle('fa-arrow-up-z-a');
             // icon.classList.toggle('fa-arrow-up-a-z');
 
         })
@@ -70,15 +70,15 @@ if (window.location.pathname.includes('facture.html')) {
             }
 
         })
-
+// ==========================================================================================
         tbodyFacture.innerHTML = '';
         arrayFilter.forEach(element => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `<td >${element.numero.toString().padStart(4, '0')}</td>
+            tbodyFacture.innerHTML += `<tr>
+            <td>${element.numero.toString().padStart(4, '0')}</td>
                     <td >${element.laboratoire}</td>
                     <td >${element.date}</td>
-                    <td class="voir"> <button class="button">voir</button> </td>`;
-            tbodyFacture.appendChild(tr);
+                    <td class="voir"> <button class="button">voir</button> </td>
+                    </tr>`;
         });
         inputSearch.value = '';
     })
@@ -90,13 +90,6 @@ if (window.location.pathname.includes('facture.html')) {
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
-// =================================================================================================================
-const btnDisConnect = document.querySelector('#disConnect');
-
-btnDisConnect.addEventListener('click', () =>{
-    localStorage.removeItem('connecte');
-})
-// =================================================================================================================
 
     // ROUTE COMMANDE 
 } else if (window.location.pathname.includes('commande.html')) {
@@ -195,14 +188,6 @@ btnDisConnect.addEventListener('click', () =>{
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
-
-    // =================================================================================================================
-    const btnDisConnect = document.querySelector('#disConnect');
-
-    btnDisConnect.addEventListener('click', () =>{
-        localStorage.removeItem('connecte');
-    })
-    // =================================================================================================================
 
     //  ROUTE SUIVI 
 } else if (window.location.pathname.includes('suivi.html')) {
@@ -316,16 +301,6 @@ btnDisConnect.addEventListener('click', () =>{
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
-
-    // =================================================================================================================
-    const btnDisConnect = document.querySelector('#disConnect');
-
-    btnDisConnect.addEventListener('click', () =>{
-        localStorage.removeItem('connecte');
-    })
-    // =================================================================================================================
-
-//  ROUTE SUIVI DETAILLE 
 } else if (window.location.pathname.includes('suividetail.html')) {
     let object = JSON.parse(localStorage.getItem('objet')) // RECUPERATION DE L'OBJET DE localStarage
     const nomLot = document.querySelector('#nomLot');
@@ -333,23 +308,15 @@ btnDisConnect.addEventListener('click', () =>{
     nomLot.textContent = object.lot;
     nomRapport.textContent = object.lot;
 
-    // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==================================
-    let userConnecte = JSON.parse(localStorage.getItem('connecte'));
-    let avatar = document.querySelector('.profilNavbar');
-    function loadAvatarNavBar() {
-        avatar.src = userConnecte.picture;
-    }
-    loadAvatarNavBar();
-
-    // =================================================================================================================
-    const btnDisConnect = document.querySelector('#disConnect');
-
-    btnDisConnect.addEventListener('click', () =>{
-        localStorage.removeItem('connecte');
-    })
-    // =================================================================================================================
-
-    //  ROUTE INDEX 
+  // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
+  let userConnecte = JSON.parse(localStorage.getItem('connecte'));
+  console.log(userConnecte);
+  let avatar = document.querySelector('.avatarNavbar');
+  console.log(avatar);
+  function loadAvatarNavBar() {
+      avatar.src = userConnecte.picture;
+  }
+  loadAvatarNavBar()
 } else if (window.location.pathname.includes('index.html')) {
     // ====================== CONNEXION ==============================
     const btnConnexion = document.querySelector('#btnConnexion');
@@ -371,11 +338,10 @@ btnDisConnect.addEventListener('click', () =>{
         }
         const email = inputIdentifant.value.trim();
         const password = inputPassword.value.trim();
-        let existUser = tabUsers.find(user => (user.nom === email && user.password === password))
+        let existUser = tabUsers.find(user => (user.login === email && user.password === password));
 
         if (existUser) {
-           window.location.href = 'dashbord.html';
-            // btnConnexion.target = "_blank";
+            location.href = 'dashbord.html';
             localStorage.setItem('connecte', JSON.stringify(existUser)); // ENVOIE DE L'UTILISATEUR CONNECTE DANS LE localStrorage
         } else {
             essai++;
@@ -410,7 +376,7 @@ btnDisConnect.addEventListener('click', () =>{
         }
     })
 
-   
+
     // ========================================== Fonctios =================================================
     // ------------------------------ fonction timer ---------------------------------
     let date = Date.now();
@@ -441,8 +407,7 @@ btnDisConnect.addEventListener('click', () =>{
         addMunites(newDate, time);
     }
     // ---------------------------------------------------------------------------
-    
-//  ROUTE PARAMETTRE 
+
 } else if (window.location.pathname.includes('parametre.html')) {
 
     let notification = document.querySelector('.notification');
@@ -495,7 +460,10 @@ btnDisConnect.addEventListener('click', () =>{
                 inputPassEncien.value = '';
                 inputPassNouveau.value = '';
                 inputPassConfirm.value = '';
-
+                localStorage.removeItem('connecte');
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 5000);
             } else if (userConnecte.password !== valPassEncien) {
 
                 titreNotif.textContent = 'Modification de mot de passe';
@@ -525,13 +493,17 @@ btnDisConnect.addEventListener('click', () =>{
     const btnDelCompte = document.querySelector('#btnDel');
 
     btnDelCompte.addEventListener('click', () => {
-        user = tabUsers.find(ulitisaleur => ulitisaleur.password === userConnecte.password)
-        let indexUser = tabUsers.indexOf(user)// RECHERCHE DE L'INDEX DE L'UTILISATEUR CONNECTE
-        tabUsers.splice(indexUser, 1);// SUPPRESSION DE L'UTILISATEUR CONNECTE DE TABLEAU DES UTILISATEURS
-        localStorage.setItem('user', JSON.stringify(tabUsers));
-        localStorage.removeItem('connecte');
-        alert('compte supprimer avec succes');
-        location.href = 'index.html'; // redirection de à la page index
+        let ok = confirm('Voulez-vous supprimer le compte ?');
+        if (ok === true) {
+            user = tabUsers.find(ulitisaleur => ulitisaleur.password === userConnecte.password)
+            let indexUser = tabUsers.indexOf(user)// RECHERCHE DE L'INDEX DE L'UTILISATEUR CONNECTE
+            tabUsers.splice(indexUser, 1);// SUPPRESSION DE L'UTILISATEUR CONNECTE DE TABLEAU DES UTILISATEURS
+            localStorage.setItem('user', JSON.stringify(tabUsers));
+            localStorage.removeItem('connecte');
+            location.href = 'index.html'; // redirection de à la page index
+        }
+
+
     })
 
     // ==================================MODIFICATION DE PROFIL ======================================
@@ -541,7 +513,13 @@ btnDisConnect.addEventListener('click', () =>{
     const inputBiblio = document.querySelector('#inputBiblio');
     const btnEditProfil = document.querySelector('#btnEditProfil');
 
-
+    function infoUser() {
+        inputNomEdit.value = userConnecte.nom;
+        inputMailEdit.value = `${userConnecte.nom}@mai.com`;
+        inputBiblio.value = `${userConnecte.nom} bibliograhie`;
+    }
+    
+    infoUser();
 
     btnEditProfil.addEventListener('click', (e) => {
         e.preventDefault();
@@ -563,7 +541,7 @@ btnDisConnect.addEventListener('click', () =>{
             updateUserTabUser();
         }
 
-
+        infoUser();
     })
 
     // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
@@ -654,18 +632,6 @@ btnDisConnect.addEventListener('click', () =>{
             notification.classList.add('hidden');
         }, 3000);
     }
-
-
-
-    // =================================================================================================================
-    const btnDisConnect = document.querySelector('#disConnect');
-
-    btnDisConnect.addEventListener('click', () =>{
-        localStorage.removeItem('connecte');
-    })
-    // =================================================================================================================
-
-    //  ROUTE DASHBORD 
 } else if (window.location.pathname.includes('dashbord.html')) {
     // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==================================
     let userConnecte = JSON.parse(localStorage.getItem('connecte'));
@@ -674,16 +640,6 @@ btnDisConnect.addEventListener('click', () =>{
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
-
-    // =================================================================================================================
-    const btnDisConnect = document.querySelector('#disConnect');
-
-    btnDisConnect.addEventListener('click', () =>{
-        localStorage.removeItem('connecte');
-    })
-    // =================================================================================================================
-
-    //  ROUTE SERVICE CLIENT 
 } else if (window.location.pathname.includes('serviceClient.html')) {
     // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
     let userConnecte = JSON.parse(localStorage.getItem('connecte'));
@@ -692,18 +648,17 @@ btnDisConnect.addEventListener('click', () =>{
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
+}else{
+    window.location.href ='index.html';
 }
 
 
-    // =================================================================================================================
-    const btnDisConnect = document.querySelector('#disConnect');
-
-    btnDisConnect.addEventListener('click', () =>{
-        localStorage.removeItem('connecte');
-    })
-    // =================================================================================================================
-
-
+// =================================== FONCTION DE DECONNEXION DU COMPTE ============================================================
+function disConnect() {
+    localStorage.removeItem('connecte');
+    location.href = 'index.html';
+}
+// =================================================================================================================================
 
 // ===================localstorage========================================
 // ========= ENVOI DE TABLEAU DES UTILISATEURS DANS le localstorage =======

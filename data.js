@@ -190,12 +190,14 @@ const suivi = [
 const users = [
     {
         id : Date.now(),
+        login: 'test1',
         nom: 'test1',
         password: 'test1',
         picture: './avatar.jpg'
     },
     {
         id : Date.now(),
+        login: 'test2',
         nom: 'test2',
         password: 'test2',
         picture: './avatar.jpg'
