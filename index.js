@@ -33,7 +33,7 @@ if (window.location.pathname.includes('facture.html')) {
     const allTh = document.querySelectorAll('th');
     const allTr = tbodyFacture.querySelectorAll('tr');
     // console.log(allTr, allTh);
-    for (let i = 0; i < allTh.length; i++) { 
+    for (let i = 0; i < allTh.length; i++) {
         const th = allTh[i];
         th.addEventListener('click', () => {
             let lignes = Array.from(allTr).sort(compare(Array.from(allTh).indexOf(th), this.asc = !this.asc)); // les paramètres de la methode compare() (c'est-à-dire les  a et b) representent les différents tr du tableau lignes;
@@ -70,7 +70,7 @@ if (window.location.pathname.includes('facture.html')) {
             }
 
         })
-// ==========================================================================================
+        // ==========================================================================================
         tbodyFacture.innerHTML = '';
         arrayFilter.forEach(element => {
             tbodyFacture.innerHTML += `<tr>
@@ -308,16 +308,17 @@ if (window.location.pathname.includes('facture.html')) {
     nomLot.textContent = object.lot;
     nomRapport.textContent = object.lot;
 
-  // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
-  let userConnecte = JSON.parse(localStorage.getItem('connecte'));
-  console.log(userConnecte);
-  let avatar = document.querySelector('.avatarNavbar');
-  console.log(avatar);
-  function loadAvatarNavBar() {
-      avatar.src = userConnecte.picture;
-  }
-  loadAvatarNavBar()
+    // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
+    let userConnecte = JSON.parse(localStorage.getItem('connecte'));
+    console.log(userConnecte);
+    let avatar = document.querySelector('.avatarNavbar');
+    console.log(avatar);
+    function loadAvatarNavBar() {
+        avatar.src = userConnecte.picture;
+    }
+    loadAvatarNavBar()
 } else if (window.location.pathname.includes('index.html')) {
+
     // ====================== CONNEXION ==============================
     const btnConnexion = document.querySelector('#btnConnexion');
     const inputIdentifant = document.querySelector('#identifiant');
@@ -327,7 +328,20 @@ if (window.location.pathname.includes('facture.html')) {
     const seconde = document.querySelector('#seconde');
     const timer = document.querySelector('.timer');
     let essai = 0;
-    let tabUsers = JSON.parse(localStorage.getItem('user')); // RECUPERATUION DE TABLEAU DES UTLISATEURS DE localStorage
+// ========================= LES VALEUR QUI TRAITTENT LE TIMER DANS LE LOCALSTORAGE =======================
+    if (!localStorage.getItem('timer')) {
+        localStorage.setItem('timer', JSON.stringify(300)); // envoi de 5mn dans le localstorage en second
+    }
+    let timerLocal = JSON.parse(localStorage.getItem('timer'));
+    console.log(timerLocal);
+    let check = false;
+    if (!localStorage.getItem('check')) {
+        localStorage.setItem('check', JSON.stringify(check))
+    }
+    check = JSON.parse(localStorage.getItem('check'));
+// ========================== RECUPERATUION DE TABLEAU DES UTLISATEURS DE localStorage ===================================
+
+    let tabUsers = JSON.parse(localStorage.getItem('user')); // 
     btnConnexion.addEventListener('click', () => {
         if (inputIdentifant.value === "" || inputPassword.value === '') {
             notification.querySelector('p').textContent = 'Veuillez renseigner tous les champ';
@@ -359,52 +373,58 @@ if (window.location.pathname.includes('facture.html')) {
                     if (question === 'mouton') {
                         window.location.href = 'dashbord.html';
                     } else {
-                        timer.classList.remove('hidden');
-                        chrono(5);  // le timer
-                        //====================== RECUPERATIN DE TOUTS LES INPUTS ET LES DESACTIVER ================================ 
-                        const form = document.querySelector('.login-box');
-                        const allInput = form.querySelectorAll('input');
-                        allInput.forEach(input => input.disabled = true);
-                        setTimeout(() => {
-                            timer.classList.add('hidden');
-                            allInput.forEach(input => input.disabled = false); // reactivation des inputs
-                        }, 300000);
+                        check = true;
+                        localStorage.setItem('check', JSON.stringify(check));
+                        showHiddenTimer();
                     }
                 }, 4000);
             }
 
         }
     })
+// ======================== FONCTION TIMER DE DEBLOCKAGE ==================================================
+    function showHiddenTimer() {
+        let checked = JSON.parse(localStorage.getItem('check'));
+        if (checked) {
 
+            timer.classList.remove('hidden');
+            chrono(timerLocal);  // le timer
+    
+ //====================== RECUPERATIN DE TOUTS LES INPUTS ET LES DESACTIVER ================================ 
+            const form = document.querySelector('.login-box');
+            const allInput = form.querySelectorAll('input');
+            allInput.forEach(input => input.disabled = true);
+            setTimeout(() => {
+                timer.classList.add('hidden');
+                allInput.forEach(input => input.disabled = false); // reactivation des inputs
+                location.reload();
+            }, 300000);
+        }
+    }
+
+    showHiddenTimer(); 
 
     // ========================================== Fonctios =================================================
     // ------------------------------ fonction timer ---------------------------------
-    let date = Date.now();
-
-    function addMunites(date, mn) {
-        date.setMinutes(date.getMinutes() + mn);
-        return date;
-    };
-
+   
     function chrono(time) {
 
-        let newDate = new Date();
-        let temps = time * 60
-
         let interval = setInterval(() => {
+            time = time <= 0 ? 0 : --time;
+            munite.textContent = `0${Math.floor(time / 60)} :`;
+            seconde.textContent = `${Math.floor(time % 60)}`;
 
-            munite.textContent = `0${Math.floor(temps / 60)} :`;
-            seconde.textContent = `${Math.floor(temps % 60)}`;
+            localStorage.setItem('timer', JSON.stringify(time));
 
-            temps = temps <= 0 ? 0 : --temps;
-
-
-            if (temps === 0) {
+            if (time === 0) {
                 clearInterval(interval);
+                localStorage.removeItem('timer');
+                check = false;
+                localStorage.setItem('check', JSON.stringify(check));
+                timer.classList.add('hidden');
             }
 
         }, 1000);
-        addMunites(newDate, time);
     }
     // ---------------------------------------------------------------------------
 
@@ -518,7 +538,7 @@ if (window.location.pathname.includes('facture.html')) {
         inputMailEdit.value = `${userConnecte.nom}@mai.com`;
         inputBiblio.value = `${userConnecte.nom} bibliograhie`;
     }
-    
+
     infoUser();
 
     btnEditProfil.addEventListener('click', (e) => {
@@ -648,8 +668,8 @@ if (window.location.pathname.includes('facture.html')) {
         avatar.src = userConnecte.picture;
     }
     loadAvatarNavBar()
-}else{
-    window.location.href ='index.html';
+} else {
+    window.location.href = 'index.html';
 }
 
 
