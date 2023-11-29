@@ -48,40 +48,35 @@ if (window.location.pathname.includes('facture.html')) {
     }
 
     // ===============FILTRAGE SUR LE BOUTTON RECHERCHE ============================
+
     const inputSearch = document.querySelector('#inputSearch');
-    const arrayFilter = [];
-
-    inputSearch.addEventListener('search', () => {
-
-        let cle = inputSearch.value;
-        cle = cle.toUpperCase().split(''); // ici la cle recherchée est convertie en tableau et le tableau est constitué des caracteres qui constitue la clé tous en majuscule
-        facture.forEach(element => {
-
-            const elementLabo = element.laboratoire.toUpperCase().split('');
-
-            function sousArry(arr1, arr2) {
-                return arr1.every(element => arr2.includes(element));
-            }
-
-            const result = sousArry(cle, elementLabo);
-
-            if (result) {
-                arrayFilter.push(element);
-            }
-
-        })
-        // ==========================================================================================
-        tbodyFacture.innerHTML = '';
-        arrayFilter.forEach(element => {
-            tbodyFacture.innerHTML += `<tr>
-            <td>${element.numero.toString().padStart(4, '0')}</td>
-                    <td >${element.laboratoire}</td>
-                    <td >${element.date}</td>
-                    <td class="voir"> <button class="button">voir</button> </td>
-                    </tr>`;
+    inputSearch.addEventListener('input', () => {
+        const cle = inputSearch.value.toUpperCase();
+        const tableFilter = facture.filter(element => {
+            const elementLabo = element.laboratoire.toUpperCase();
+            return elementLabo.includes(cle);
         });
-        inputSearch.value = '';
-    })
+
+        // Affiche les résultats dans le tableau
+        showTableFilter(tableFilter);
+    });
+
+    function showTableFilter(tableFilter) {
+        tbodyFacture.innerHTML = '';
+        if (tableFilter.length === 0) {
+            tbodyFacture.innerHTML = '<tr><td colspan="4">Aucun résultat trouvé</td></tr>';
+        } else {
+            tableFilter.forEach(element => {
+                tbodyFacture.innerHTML += `<tr>
+            <td>${element.numero.toString().padStart(4, '0')}</td>
+            <td>${element.laboratoire}</td>
+            <td>${element.date}</td>
+            <td class="voir"> <button class="button">voir</button> </td>
+        </tr>`;
+            });
+        }
+    }
+
     // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
     let userConnecte = JSON.parse(localStorage.getItem('connecte'));
     let avatar = document.querySelector('.profilNavbar');
@@ -143,42 +138,35 @@ if (window.location.pathname.includes('facture.html')) {
     }
 
     // ===============FILTRAGE SUR LE BOUTTON RECHERCHE ============================
+
     const inputSearch = document.querySelector('#inputSearch');
-    const arrayFilter = [];
+    inputSearch.addEventListener('input', () => {
+        const cle = inputSearch.value.toUpperCase();
+        const tableFilter = commande.filter(element => {
+            const elementLabo = element.laboratoire.toUpperCase();
+            return elementLabo.includes(cle);
+        });
 
-    inputSearch.addEventListener('search', () => {
+        // Affiche les résultats dans le tableau
+        showTableFilter(tableFilter);
+    });
 
-        let cle = inputSearch.value;
-        cle = cle.toUpperCase().split(''); // ici la cle recherchée est convertie en tableau et le tableau est constitué des caracteres qui constitue la clé tous en majuscule
-        commande.forEach(element => {
-
-            const elementLabo = element.laboratoire.toUpperCase().split('');
-
-            function sousArry(arr1, arr2) {
-                return arr1.every(element => arr2.includes(element));
-            }
-
-            const result = sousArry(cle, elementLabo);
-
-            if (result) {
-                arrayFilter.push(element);
-            }
-
-        })
-
+    function showTableFilter(tableFilter) {
         tbodyCommande.innerHTML = '';
-        arrayFilter.forEach(element => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-            <td >${element.numero.toString().padStart(4, '0')}</td>
+        if (tableFilter.length === 0) {
+            tbodyCommande.innerHTML = '<tr><td colspan="5">Aucun résultat trouvé</td></tr>';
+        } else {
+            tableFilter.forEach(element => {
+                tbodyCommande.innerHTML += `<tr><td >${element.numero.toString().padStart(4, '0')}</td>
             <td >${element.laboratoire}</td>
             <td >${element.date}</td>
             <td>${element.statut}</td>
-            <td class="voir"> <button class="button">voir</button> </td>`;
-            tbodyCommande.appendChild(tr);
-        });
-        inputSearch.value = '';
-    })
+            <td class="voir"> <button class="button">voir</button> </td>
+        </tr>`;
+            });
+        }
+    }
+
     // ===========================================================================
 
     // ============================= CHARGEMENT DE L'AVATAR DE L'UTILISATEUR CONNECTE ==============================================
@@ -242,41 +230,34 @@ if (window.location.pathname.includes('facture.html')) {
 
     // ===============FILTRAGE SUR LE BOUTTON RECHERCHE ============================
     const inputSearch = document.querySelector('#inputSearch');
-    const arrayFilter = [];
-
-    inputSearch.addEventListener('search', () => {
-
-        let cle = inputSearch.value;
-        cle = cle.toUpperCase().split(''); // ici la cle recherchée est convertie en tableau et le tableau est constitué des caracteres qui constitue la clé tous en majuscule
-        suivi.forEach(element => {
-
-            const elementDispo = element.rapport.toUpperCase().split('');
-
-            function sousArry(arr1, arr2) {
-                return arr1.every(element => arr2.includes(element));
-            }
-
-            const result = sousArry(cle, elementDispo);
-
-            if (result) {
-                arrayFilter.push(element);
-            }
-
-        })
-        console.log(arrayFilter);
-        tbodysuivi.innerHTML = '';
-        arrayFilter.forEach(element => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                    <td >${element.lot}</td>
-                    <td >${element.etat}</td>
-                    <td >${element.datePrevue}</td>
-                    <td>${element.rapport}</td>
-                    <td class="voir"> <button class="button">voir</button> </td>`;
-            tbodysuivi.appendChild(tr);
+    inputSearch.addEventListener('input', () => {
+        const cle = inputSearch.value.toUpperCase();
+        const tableFilter = suivi.filter(element => {
+            const elementLabo = element.rapport.toUpperCase();
+            return elementLabo.includes(cle);
         });
-        inputSearch.value = '';
-    })
+
+        // Affiche les résultats dans le tableau
+        showTableFilter(tableFilter);
+    });
+
+    function showTableFilter(tableFilter) {
+        tbodysuivi.innerHTML = '';
+        if (tableFilter.length === 0) {
+            tbodysuivi.innerHTML = '<tr><td colspan="5">Aucun résultat trouvé</td></tr>';
+        } else {
+            tableFilter.forEach(element => {
+                tbodysuivi.innerHTML += `<tr>
+                <td >${element.lot}</td>
+                <td >${element.etat}</td>
+                <td >${element.datePrevue}</td>
+                <td>${element.rapport}</td>
+                <td class="voir"> <button class="button">voir</button> </td>
+        </tr>`;
+            });
+        }
+    }
+
 
     // ===================================BOUTTON VOIR LE DETAIL =============================================
     const lienVoir = document.querySelectorAll('.link-voir');
@@ -328,7 +309,7 @@ if (window.location.pathname.includes('facture.html')) {
     const seconde = document.querySelector('#seconde');
     const timer = document.querySelector('.timer');
     let essai = 0;
-// ========================= LES VALEUR QUI TRAITTENT LE TIMER DANS LE LOCALSTORAGE =======================
+    // ========================= LES VALEUR QUI TRAITTENT LE TIMER DANS LE LOCALSTORAGE =======================
     if (!localStorage.getItem('timer')) {
         localStorage.setItem('timer', JSON.stringify(300)); // envoi de 5mn dans le localstorage en second
     }
@@ -339,7 +320,7 @@ if (window.location.pathname.includes('facture.html')) {
         localStorage.setItem('check', JSON.stringify(check))
     }
     check = JSON.parse(localStorage.getItem('check'));
-// ========================== RECUPERATUION DE TABLEAU DES UTLISATEURS DE localStorage ===================================
+    // ========================== RECUPERATUION DE TABLEAU DES UTLISATEURS DE localStorage ===================================
 
     let tabUsers = JSON.parse(localStorage.getItem('user')); // 
     btnConnexion.addEventListener('click', () => {
@@ -382,15 +363,15 @@ if (window.location.pathname.includes('facture.html')) {
 
         }
     })
-// ======================== FONCTION TIMER DE DEBLOCKAGE ==================================================
+    // ======================== FONCTION TIMER DE DEBLOCKAGE ==================================================
     function showHiddenTimer() {
         let checked = JSON.parse(localStorage.getItem('check'));
         if (checked) {
 
             timer.classList.remove('hidden');
             chrono(timerLocal);  // le timer
-    
- //====================== RECUPERATIN DE TOUTS LES INPUTS ET LES DESACTIVER ================================ 
+
+            //====================== RECUPERATIN DE TOUTS LES INPUTS ET LES DESACTIVER ================================ 
             const form = document.querySelector('.login-box');
             const allInput = form.querySelectorAll('input');
             allInput.forEach(input => input.disabled = true);
@@ -402,11 +383,11 @@ if (window.location.pathname.includes('facture.html')) {
         }
     }
 
-    showHiddenTimer(); 
+    showHiddenTimer();
 
     // ========================================== Fonctios =================================================
     // ------------------------------ fonction timer ---------------------------------
-   
+
     function chrono(time) {
 
         let interval = setInterval(() => {
