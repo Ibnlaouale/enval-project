@@ -129,9 +129,9 @@ if (window.location.pathname.includes('facture.html')) {
             let lignes = Array.from(allTr).sort(compare(Array.from(allTh).indexOf(th), this.asc = !this.asc)); // les paramètres de la methode compare() (c'est-à-dire les  a et b) representent les différents tr du tableau lignes;
             lignes.forEach(tr => tbodyCommande.appendChild(tr));
             console.log(true);
-            // const icon = th.querySelector("i");
-            // icon.classList.toggle('fa-arrow-up-z-a');
-            // icon.classList.toggle('fa-arrow-up-a-z');
+            const icon = th.querySelector("i");
+            icon.classList.toggle('fa-arrow-up-z-a');
+            icon.classList.toggle('fa-arrow-up-a-z');
 
         })
 
@@ -220,9 +220,9 @@ if (window.location.pathname.includes('facture.html')) {
             let lignes = Array.from(allTr).sort(compare(Array.from(allTh).indexOf(th), this.asc = !this.asc)); // les paramètres de la methode compare() representent les différents tr du tableau lignes;
             lignes.forEach(tr => tbodysuivi.appendChild(tr));
             console.log(true);
-            // const icon = th.querySelector("i");
-            // icon.classList.toggle('fa-arrow-up-z-a');
-            // icon.classList.toggle('fa-arrow-up-a-z');
+            const icon = th.querySelector("i");
+            icon.classList.toggle('fa-arrow-up-z-a');
+            icon.classList.toggle('fa-arrow-up-a-z');
 
         })
 
@@ -375,9 +375,11 @@ if (window.location.pathname.includes('facture.html')) {
             const form = document.querySelector('.login-box');
             const allInput = form.querySelectorAll('input');
             allInput.forEach(input => input.disabled = true);
+            btnConnexion.disabled = true;
             setTimeout(() => {
                 timer.classList.add('hidden');
                 allInput.forEach(input => input.disabled = false); // reactivation des inputs
+                btnConnexion.disabled = false;
                 location.reload();
             }, 300000);
         }
